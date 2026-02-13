@@ -1,0 +1,298 @@
+/* =========================
+   DESIGN TOKENS
+========================= */
+:root {
+  --bg-main: #0b0f1a;
+  --bg-panel: rgba(255, 255, 255, 0.08);
+  --bg-panel-strong: rgba(255, 255, 255, 0.12);
+
+  --border-soft: rgba(255, 255, 255, 0.15);
+
+  --accent-green: #1ed760;
+  --accent-blue: #4cc9f0;
+  --accent-pink: #f72585;
+  --accent-gold: #ffd166;
+  --danger-red: #ff4d4d;
+
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.65);
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --blur: blur(16px);
+  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   RESET + BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #12172a, var(--bg-main));
+  color: var(--text-main);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* =========================
+   APP WRAPPER
+========================= */
+.app {
+  max-width: 960px;
+  margin: auto;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   GLASS CARD (REUSABLE)
+========================= */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.card {
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  margin-bottom: 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  font-size: 0.95rem;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent-green);
+}
+
+/* =========================
+   BUTTONS (GLOBAL)
+========================= */
+button {
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, var(--accent-green), #13b867);
+  color: #051a0f;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(30,215,96,0.35);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button.danger {
+  background: linear-gradient(135deg, var(--danger-red), #d93636);
+  color: white;
+}
+
+button.secondary {
+  background: linear-gradient(135deg, var(--accent-blue), #3aa3d1);
+  color: #06121a;
+}
+
+/* =========================
+   SCORE SUMMARY
+========================= */
+.score-summary {
+  padding: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.team-name {
+  color: var(--accent-green);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.main-score {
+  font-size: 3.6rem;
+  font-weight: 700;
+  margin: 0.4rem 0;
+}
+
+.main-score small {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =========================
+   PLAYERS PANEL
+========================= */
+.players {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.batsmen {
+  display: flex;
+  gap: 1rem;
+}
+
+.batsman,
+.bowler {
+  flex: 1;
+  padding: 1rem;
+}
+
+.batsman h4,
+.bowler h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.batsman p,
+.bowler p {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.batsman small,
+.bowler small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.batsman.active {
+  outline: 2px solid var(--accent-green);
+  box-shadow: 0 0 0 4px rgba(30,215,96,0.15);
+}
+
+/* =========================
+   CONTROLS (RUNS / EXTRAS)
+========================= */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.controls button {
+  min-width: 70px;
+}
+
+/* =========================
+   WICKET BUTTON
+========================= */
+button.danger {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   COMMENTARY
+========================= */
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.85rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.08);
+}
+
+/* =========================
+   MODAL (WINNER / BOWLER)
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 20, 0.75);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+}
+
+.modal .card {
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* =========================
+   CHART CONTAINER
+========================= */
+.recharts-wrapper {
+  margin-top: 0.5rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 640px) {
+  .main-score {
+    font-size: 3rem;
+  }
+
+  .batsmen {
+    flex-direction: column;
+  }
+
+  .controls button {
+    flex: 1 1 30%;
+  }
+}
